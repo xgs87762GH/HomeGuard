@@ -6,7 +6,7 @@ app:
 
 ai:
   openai:
-    api_key: "sk-***"
+    api_key: "sk-xxx"
     model: "gpt-4o-mini"
 
 
