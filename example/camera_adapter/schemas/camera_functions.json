@@ -1,0 +1,17 @@
+[
+  {
+    "name": "take_photo",
+    "description": "拍照并保存到指定文件",
+    "parameters": { "$ref": "camera_schema.json#/definitions/take_photo_args" }
+  },
+  {
+    "name": "record_video",
+    "description": "录制指定时长的视频并保存",
+    "parameters": { "$ref": "camera_schema.json#/definitions/record_video_args" }
+  },
+  {
+    "name": "set_camera_parameters",
+    "description": "设置摄像头参数（分辨率、对比度、亮度等）",
+    "parameters": { "$ref": "camera_schema.json#/definitions/set_camera_parameters_args" }
+  }
+]

@@ -1,0 +1,53 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "take_photo_args": {
+      "type": "object",
+      "required": [],
+      "properties": {
+        "filename": {
+          "type": ["string", "null"],
+          "default": null,
+          "description": "照片保存文件名（含扩展名）。请留空，由系统自动生成。"
+        }
+      }
+    },
+
+    "record_video_args": {
+      "type": "object",
+      "required": [],
+      "properties": {
+        "filename": {
+          "type": ["string", "null"],
+          "default": null,
+          "description": "视频保存文件名（含扩展名）。如不填写，系统会自动生成。"
+        },
+        "duration": {
+          "type": ["integer"],
+          "minimum": 60,
+          "default": 60,
+          "description": "录制时长（秒）。仅在用户明确提及时才填写；否则保持缺失，由系统默认为 60 秒。"
+        }
+      }
+    },
+
+    "set_camera_parameters_args": {
+      "type": "object",
+      "properties": {
+        "resolution": {
+          "type": "array",
+          "items": { "type": "integer" },
+          "minItems": 2,
+          "maxItems": 2,
+          "description": "[宽, 高] 像素"
+        },
+        "contrast":    { "type": "integer", "description": "对比度 0-100" },
+        "brightness":  { "type": "integer", "description": "亮度 0-100" },
+        "saturation":  { "type": "integer", "description": "饱和度 0-100" },
+        "sharpness":   { "type": "integer", "description": "锐度 0-100" },
+        "iso":         { "type": "integer", "description": "ISO 值" },
+        "exposure":    { "type": "integer", "description": "曝光值" }
+      }
+    }
+  }
+}

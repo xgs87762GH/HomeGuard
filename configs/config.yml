@@ -1,0 +1,61 @@
+# 全局配置
+app:
+  name: HomeGuard
+  env: dev            # dev / prod / test
+
+
+ai:
+  openai:
+    api_key: "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"
+    model: "gpt-4o-mini"
+
+
+
+# 数据库配置
+database:
+  default: &sqlite
+    driver: sqlite+aiosqlite
+    database: "./data/homeguard.db"
+    echo: false
+    pool_pre_ping: true
+
+    #  dev: &dev_mysql
+    #    driver: mysql+aiomysql
+    #    host: 192.168.110.126
+    #    port: 3306
+    #    database: homeguard
+    #    username: root
+    #    password:
+    #    echo: true
+    #    pool_pre_ping: true
+  #  dev: &dev_sqlite
+  #    driver: sqlite+aiosqlite
+  #    database: "./data/homeguard.db"
+  #    echo: false
+  #    pool_pre_ping: true
+  dev: &dev_mysql
+    driver: mysql+asyncmy
+    host: 192.168.110.126
+    port: 3306
+    database: homeguard
+    username: root
+    password: "xgs587762"      # 如有密码请填写
+    echo: false
+    pool_pre_ping: true
+
+  prod: &prod_pg
+    driver: postgresql+asyncpg
+    host: 10.0.0.21
+    port: 5432
+    database: homeguard
+    username: pguser
+    password:
+    echo: false
+    pool_pre_ping: true
+
+# 日志配置
+logging:
+  root_level: INFO
+  file_level: DEBUG
+  console: true
+  log_dir: "{system_tmp}/logs/{app_name}"
