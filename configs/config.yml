@@ -1,17 +1,14 @@
-# 全局配置
+# Global configuration
 app:
   name: HomeGuard
   env: dev            # dev / prod / test
 
-
 ai:
   openai:
-    api_key: "sk-xxx"
+    api_key: "${OPENAI_API_KEY}"   # Load from environment variable
     model: "gpt-4o-mini"
 
-
-
-# 数据库配置
+# Database configuration
 database:
   default: &sqlite
     driver: sqlite+aiosqlite
@@ -19,27 +16,13 @@ database:
     echo: false
     pool_pre_ping: true
 
-    #  dev: &dev_mysql
-    #    driver: mysql+aiomysql
-    #    host: 192.168.110.126
-    #    port: 3306
-    #    database: homeguard
-    #    username: root
-    #    password:
-    #    echo: true
-    #    pool_pre_ping: true
-  #  dev: &dev_sqlite
-  #    driver: sqlite+aiosqlite
-  #    database: "./data/homeguard.db"
-  #    echo: false
-  #    pool_pre_ping: true
   dev: &dev_mysql
     driver: mysql+asyncmy
     host: 192.168.110.126
     port: 3306
     database: homeguard
     username: root
-    password: "xgs587762"      # 如有密码请填写
+    password: "${DB_PASSWORD}"      # Load from environment variable
     echo: false
     pool_pre_ping: true
 
@@ -49,11 +32,11 @@ database:
     port: 5432
     database: homeguard
     username: pguser
-    password:
+    password: "${DB_PASSWORD}"      # Load from environment variable
     echo: false
     pool_pre_ping: true
 
-# 日志配置
+# Logging configuration
 logging:
   root_level: INFO
   file_level: DEBUG
