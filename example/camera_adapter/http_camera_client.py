@@ -102,26 +102,35 @@ async def chat_with_camera(prompt: str) -> str:
 # ---------- CLI ----------
 async def main():
     try:
-        reply = await chat_with_camera("帮我拍摄一张照片")
-        LOGGER.info("🤖AI智能体: %s \n", reply)
+        # reply = await chat_with_camera("帮我拍摄一张照片")
+        # LOGGER.info("🤖AI智能体: %s \n", reply)
+        #
+        # reply = await chat_with_camera("提高一点亮度")
+        # LOGGER.info("🤖AI智能体: %s \n", reply)
 
-        reply = await chat_with_camera("再拍一张")
-        LOGGER.info("🤖AI智能体: %s \n", reply)
+        reply = await chat_with_camera("Take a photo for me")
+        LOGGER.info("🤖AI Agent: %s\n", reply)
 
-        reply = await chat_with_camera("再拍一张，文件名为photo.jpg")
-        LOGGER.info("🤖AI智能体: %s \n", reply)
+        reply = await chat_with_camera("Increase the brightness a bit")
+        LOGGER.info("🤖AI Agent: %s\n", reply)
 
-        reply = await chat_with_camera("再拍一张")
-        LOGGER.info("🤖AI智能体: %s \n", reply)
-
-        reply = await chat_with_camera("录制视频")
-        LOGGER.info("🤖AI智能体: %s \n", reply)
-
-        reply = await chat_with_camera("录制5秒的视频")
-        LOGGER.info("🤖AI智能体: %s \n", reply)
-
-        reply = await chat_with_camera("再录制一个")
-        LOGGER.info("🤖AI智能体: %s \n", reply)
+        # reply = await chat_with_camera("再拍一张")
+        # LOGGER.info("🤖AI智能体: %s \n", reply)
+        #
+        # reply = await chat_with_camera("再拍一张，文件名为photo.jpg")
+        # LOGGER.info("🤖AI智能体: %s \n", reply)
+        #
+        # reply = await chat_with_camera("再拍一张")
+        # LOGGER.info("🤖AI智能体: %s \n", reply)
+        #
+        # reply = await chat_with_camera("录制视频")
+        # LOGGER.info("🤖AI智能体: %s \n", reply)
+        #
+        # reply = await chat_with_camera("录制5秒的视频")
+        # LOGGER.info("🤖AI智能体: %s \n", reply)
+        #
+        # reply = await chat_with_camera("再录制一个")
+        # LOGGER.info("🤖AI智能体: %s \n", reply)
     except Exception as e:
         print("发生错误，请检查网络或服务器：", e)
 
