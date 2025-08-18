@@ -14,6 +14,15 @@
  Date: 15/08/2025 11:24:53
 */
 
+
+-- 创建数据库（如果不存在）
+CREATE DATABASE IF NOT EXISTS `homeguard`
+DEFAULT CHARACTER SET utf8mb4
+DEFAULT COLLATE utf8mb4_0900_ai_ci;
+
+-- 使用数据库
+USE `homeguard`;
+
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 

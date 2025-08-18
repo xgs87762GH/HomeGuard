@@ -1,7 +1,7 @@
 import uvicorn
 from fastapi import FastAPI
 
-from src.adapter import get_all_adapters
+from src.providers import get_all_adapters
 from src.core.config.setting import LOGGER, GlobalConfig
 from src.core.mcp.server import MCPServer, JSONRPCResponse, JSONRPCRequest
 
@@ -18,7 +18,7 @@ async def invoke(req: JSONRPCRequest):
 # ---------- 生命周期 ----------
 @app.on_event("startup")
 async def startup_event():
-    """在应用启动时一次性注册 adapter"""
+    """在应用启动时一次性注册 providers"""
     adapters = get_all_adapters()
     for adapter in adapters:
         mcp.add_adapter(adapter.name, adapter)

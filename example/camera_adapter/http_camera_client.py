@@ -17,9 +17,10 @@ logging.getLogger("httpx").setLevel(logging.WARNING)
 
 OPENAI_MODEL = CFG.ai.openai["model"]
 OPENAI_KEY = CFG.ai.openai["api_key"]
-HTTPS_MCP_URL = "http://192.168.110.126:8001/invoke"
+OPENAI_BASE_URL = CFG.ai.openai["url"]
+HTTPS_MCP_URL = "http://127.0.0.1:8001/invoke"
 
-client = AsyncOpenAI(api_key=OPENAI_KEY, base_url=os.getenv("OPENAI_BASE_URL"))
+client = AsyncOpenAI(api_key=OPENAI_KEY, base_url=OPENAI_BASE_URL)
 
 # ---------- 读取 schema ----------
 BASE_DIR = Path(__file__).resolve().parent
@@ -123,8 +124,8 @@ async def main():
         # reply = await chat_with_camera("再拍一张")
         # LOGGER.info("🤖AI智能体: %s \n", reply)
         #
-        # reply = await chat_with_camera("录制视频")
-        # LOGGER.info("🤖AI智能体: %s \n", reply)
+        reply = await chat_with_camera("录制视频")
+        LOGGER.info("🤖AI智能体: %s \n", reply)
         #
         # reply = await chat_with_camera("录制5秒的视频")
         # LOGGER.info("🤖AI智能体: %s \n", reply)

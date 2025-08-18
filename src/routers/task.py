@@ -16,11 +16,11 @@ async def invoke(req: JSONRPCRequest):
     """
     LOGGER.info("RPC request: %s", req)
 
-    # Split adapter.method
+    # Split providers.method
     try:
         adapter, method = req.method.split(".", 1)
     except ValueError:
-        raise HTTPException(status_code=400, detail="method format should be adapter.method")
+        raise HTTPException(status_code=400, detail="method format should be providers.method")
 
     async with async_session() as session:
         repo = TaskRepository(session)
